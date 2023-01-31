@@ -44,18 +44,21 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+  
+  # Add a new shared directory
+    config.vm.synced_folder "../vshare", "/shared-folder"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
+   config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
+     # vb.gui = true
+     # Customize the amount of memory on the VM:
+     vb.memory = "1024"
+     vb.cpus   = 2
+   end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
